@@ -17,37 +17,37 @@
 		<header id="header" class="lazy-load">
       <nav class="navbar navbar-default navbar-fixed-top menu">
         <div class="container">
-					<!-- Oculta barra de navegación para dispositivos móviles, muestra hamburger menu -->
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo" /></a>
+			<!-- Oculta barra de navegación para dispositivos móviles, muestra hamburger menu -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo" /></a>
+			</div>
+			<!-- Elementos de la barra de navegación -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right main-menu">
+					<li class="dropdown"><a href="index.html">Inicio</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nosotros <span><img src="images/down-arrow.png" alt="" /></span></a>
+							<ul class="dropdown-menu newsfeed-home">
+								<li><a href="#">Misión</a></li>
+								<li><a href="#">Visión</a></li>
+								<li><a href="#">My friends</a></li>
+							</ul>
+					</li>
+					<li class="dropdown"><a href="#">Contáctanos</a></li>
+				</ul>
+				<form class="navbar-form navbar-right hidden-sm">
+					<div class="form-group">
+						<i class="icon ion-android-search"></i>
+						<input type="text" class="form-control" placeholder="Buscar publicaciones">
 					</div>
-					<!-- Elementos de la barra de navegación -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav navbar-right main-menu">
-							<li class="dropdown"><a href="index.html">Inicio</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nosotros <span><img src="images/down-arrow.png" alt="" /></span></a>
-									<ul class="dropdown-menu newsfeed-home">
-										<li><a href="#">Misión</a></li>
-										<li><a href="#">Visión</a></li>
-										<li><a href="#">My friends</a></li>
-									</ul>
-							</li>
-							<li class="dropdown"><a href="#">Contáctanos</a></li>
-						</ul>
-						<form class="navbar-form navbar-right hidden-sm">
-							<div class="form-group">
-								<i class="icon ion-android-search"></i>
-								<input type="text" class="form-control" placeholder="Buscar publicaciones">
-							</div>
-						</form>
-					</div>
+				</form>
+			</div>
         </div>
       </nav>
     </header>
@@ -72,10 +72,18 @@
 							</fieldset>
 						</form>
 						<p>Al registrate aceptas nuestros términos y condiciones</p>
-						<button class="btn-secondary">Regístrate</button>
+						<button class="btn-secondary" id="btn-register">Regístrate</button>
 					</div>
-					<a href="#">Ya tienes una cuenta? Inicia sesión</a>
-					<img class="form-shadow" src="images/bottom-shadow.png" alt="" />
+					<div id="facebook">
+						<button class="btn btn-primary" id="facebook-btn"><i class="fa fa-facebook-square"></i> Ingresar con Facebook</button>
+					</div>
+					<div id="google" class="pt-2">
+						<button class="btn btn-primary" id="google-btn"><i class="fa fa-google-plus"></i>  Ingresar con Google</button>
+					</div>
+					<div class="pt-2">
+						<a href="#">Ya tienes una cuenta? Inicia sesión</a>
+						<img class="form-shadow" src="images/bottom-shadow.png" alt="" />
+					</div>
 				</div>
 				<svg class="arrows hidden-xs hidden-sm">
 					<path class="a1" d="M0 0 L30 32 L60 0"></path>
@@ -229,7 +237,7 @@
 			</div>
 		</section>
     <!-- Footer -->
-		<footer id="footer">
+	<footer id="footer">
       <div class="container">
       	<div class="row">
           <div class="footer-wrapper">
@@ -288,10 +296,13 @@
     <div id="spinner-wrapper">
       <div class="spinner"></div>
     </div>
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.appear.min.js"></script>
-		<script src="js/jquery.incremental-counter.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/styles/jquery-3.1.1.min.js"></script>
+    <script src="js/styles/bootstrap.min.js"></script>
+    <script src="js/styles/jquery.appear.min.js"></script>
+	<script src="js/styles/jquery.incremental-counter.js"></script>
+    <script src="js/styles/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/firebase.js"></script>
 	</body>
 </html>
