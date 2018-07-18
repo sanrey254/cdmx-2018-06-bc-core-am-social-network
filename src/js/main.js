@@ -6,3 +6,9 @@ document.getElementById('login-button').addEventListener('click', event => {
   const password = document.getElementById('user-password').value; 
   socialNetwork.loginWithEmailAndPassword(email, password);
 });
+
+
+document.getElementById('google-button').addEventListener('click', event =>{
+    event.preventDefault();
+    socialNetwork.loginWithGoogle();
+});

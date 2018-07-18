@@ -4,7 +4,6 @@
 <head>
   <title>Doggy Friends | Comunidad para los amantes de los perros</title>
   <meta charset="utf-8">
-  <meta name="description" content="Love Authority.">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Esta es una red social para los amantes de los perros">
@@ -81,7 +80,7 @@
           <div class="profile-card">
             <img src="../images/user-default2.jpg" alt="user" class="profile-photo" />
             <h5>
-              <a href="#" class="text-white" id="current-user-name"></a>
+              <p class="text-white" id="current-user-name"></p>
             </h5>
             <a href="#" class="text-white">
               <i class="ion ion-android-person-add"></i> 14 amig@s</a>
@@ -120,7 +119,7 @@
               <div class="col-md-7 col-sm-7">
                 <div class="form-group">
                   <img src="../images/user-default2.jpg" alt="" class="profile-photo-md" />
-                  <textarea name="texts" id="exampleTextarea" cols="60" rows="1" class="form-control" placeholder="Escribe tu publicación"></textarea>
+                  <textarea name="texts" id="user-content-post" cols="60" rows="1" class="form-control" placeholder="Escribe tu publicación"></textarea>
                 </div>
               </div>
               <div class="col-md-5 col-sm-5">
@@ -132,58 +131,14 @@
                       </a>
                     </li>
                   </ul>
-                  <button class="btn btn-primary pull-right">Publicar</button>
+                  <button class="btn btn-primary pull-right" id="send-post">Publicar</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Publicación -->
-          <div class="post-content">
-            <div class="post-container">
-              <img src="../images/user-default.jpg" alt="user" class="profile-photo-md pull-left" />
-              <div class="post-detail">
-                <div class="user-info">
-                  <h5>
-                    <a href="" class="profile-link">Linda Lohan</a>
-                    <span class="following">following</span>
-                  </h5>
-                  <p class="text-muted">Published a photo about 1 hour ago</p>
-                </div>
-                <div class="reaction">
-                  <a class="btn text-green">
-                    <i class="icon ion-thumbsup"></i> 23</a>
-                </div>
-                <div class="line-divider"></div>
-                <div class="post-text">
-                  <p>
-                    <i class="em em-thumbsup"></i>
-                    <i class="em em-thumbsup"></i> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
-                    sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                    consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-                    ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt
-                    ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem
-                    ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
-                    reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem
-                    eum fugiat quo voluptas nulla pariatur?</p>
-                </div>
-                <div class="line-divider"></div>
-                <div class="post-comment">
-                  <img src="../images/users/user-12.jpg" alt="" class="profile-photo-sm" />
-                  <p>
-                    <a href="#" class="profile-link">Cris </a> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam
-                    <i class="em em-muscle"></i>
-                  </p>
-                </div>
-                <div class="post-comment">
-                  <img src="../images/users/user-1.jpg" alt="" class="profile-photo-sm" />
-                  <input type="text" class="form-control" placeholder="Post a comment">
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- Publicaciones -->
+          <div id="list-of-post"></div>
         </div>
 
         <!-- Sección recomendaciones de amig@s -->
@@ -326,6 +281,10 @@
   <script src="../js/template/jquery.appear.min.js"></script>
   <script src="../js/template/jquery.incremental-counter.js"></script>
   <script src="../js/template/script.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+  <script src="../js/firebase.js"></script>
+  <script src="../js/timeLine.js"></script>
 </body>
 
 </html>
