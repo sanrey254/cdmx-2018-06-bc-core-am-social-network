@@ -1,4 +1,6 @@
-## Investigacion de mercado
+# Red Social Doggy Friends
+
+## Investigación de mercado
 
 
 Hemos observado un incremento en la demanda para poder entrenar  a los perro que actualmente se han convertido en un nicho que llamaremos los perrhijos debido a que la demanda esta creciendo la gente esta buscando un lugar donde poder llevar a sus perros pero he aquí donde se encuentra un desconfianza de dejar a sus perrhijos en las escuelas caninas por lo que han vivido  y están buscando un lugar donde poder encontrar gente que les ayude a educar a su perro y evitarse de problemas molestos con un vecino o hasta una multa por el perrhijo que no se encuentra educado.
@@ -14,13 +16,14 @@ Entre los milenians hay una tendencia a ya no querer tener hijos mas sin embargo
 En cuanto a los ataques de perro Cada año se registran en México 110 mil casos de agresiones por ataques de perros —según registros de la Secretaría de Salud—
 Entre enero y noviembre del 2017 de este año la BVA ha brindado atención especializada a 703 animales agresivos y un total de mil 854 de animales han sido rescatados; en sus instalaciones están albergados 113 perros y 17 gatos, en el periodo mencionado, tres mil 852 denuncias atendidas.
 
-![imagen2]('src/images/image2-readme.png')
+![imagen2](src/images/image2-readme.png)
 
 
 ## Benchmark
 
-Se hizo una invettigcion acerca de las redes sociales que ya existen y esta es la informacion que se encontro
-![imagen1]('src/images/image1-readme.png')
+Se hizo una invettigcion acerca de las redes sociales que ya existen y esta es la informacion que se encontro:
+
+![imagen1](src/images/image1-readme.png)
 
 Como pudimos observar todas ofrecen diferentes servicios  pero ninguno es especializado.Todas ofrecen un poco de todos.
 
