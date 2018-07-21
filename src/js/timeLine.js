@@ -2,18 +2,29 @@
 socialNetwork.initializeFirebase();
 let db = firebase.firestore();
 
+const setUserProfile = user =>{
+  document.getElementById('current-user-name').innerHTML = user.email;
+  userPhoto = document.getElementById('user-image');
+  if(user.photoURL === null){
+      userPhoto.src = '../images/user-default2.jpg';
+  }else{
+    userPhoto.src = user.photoURL;
+  }
+}
+
 const getCurrentUserData = () =>{
   firebase.auth().onAuthStateChanged(user => {
 	  if (user) {
-	    document.getElementById('current-user-name').innerHTML = user.email;
+      setUserProfile(user);
+	    
 	    document.getElementById('send-post').addEventListener('click', event =>{
         event.preventDefault();
-        // const user = getCurrentUserData();
+        let datePost = `${new Date()}`;
         const contentPost = document.getElementById('user-content-post').value;
         db.collection('post').add({
 				    userID: user.uid,
 				    userEmail: user.email,
-				    time: firebase.firestore.FieldValue.serverTimestamp(),
+				    time: datePost,
 				    content: contentPost
         })
           .then(result => {
@@ -43,17 +54,12 @@ const drawPostByUser = () =>{
       let result = '';
       let i = 0;
       element.forEach(post =>{
-        result += `<div class="post-content">
-            <div class="post-container">
-              <img src="../images/user-default.jpg" alt="user" class="profile-photo-md pull-left" />
-              <div class="post-detail">
-                <div class="user-info"><h5><a href="" class="profile-link">${post.data().userEmail}</a></h5><p class="text-muted">Publicado ${post.data().time}</p>
-                </div>
-                <div class="reaction"><a class="btn text-green"><i class="icon ion-thumbsup"></i> 23</a>
-                </div>
-                <div class="line-divider"></div>
-                <div class="post-text"><p><i class="em em-thumbsup"></i><i class="em em-thumbsup"></i>${post.data().content}</p></div>
-                <div class="line-divider"></div></div></div></div>`;
+          result += `<div class="card mb-4 border-secondary">
+                      <div class="card-header"><strong>${post.data().userEmail}</strong><p>${post.data().time}</p></div>
+                      <div class="card-body">
+                        <p class="card-text">${post.data().content}</p>
+                      </div>
+                    </div>`
 	        i++;
       });
 

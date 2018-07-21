@@ -36,5 +36,12 @@
     margin-top: 6rem!important;
 }
 
+.form-textarea{
+    border: none;
+    width: 100%!important;
+    max-height: 100px;
+}
 
-
+.form-control:focus{
+    box-shadow: none;
+}
