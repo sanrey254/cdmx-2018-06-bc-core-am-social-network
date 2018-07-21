@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
+    
 <head>
     <title>Doggy Friends | Comunidad para los amantes de los perros</title>
     <meta charset="utf-8">
@@ -8,23 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Esta es una red social para los amantes de los perros">
     <meta name="keywords" content="Red social, perros, cuidados, educación">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="css/loginRegisterStyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/favicon.png">
 </head>
 
 <body>
-    <!--hero section-->
-    <section class="hero">
-        <div class="container">
+    <section class="background-image">
+        <div class="container my-4">
             <div class="row">
                 <div class="col-md-6 col-sm-8 mx-auto">
-                    <div class="card border-none">
+                    <div class="card">
                         <div class="card-body">
                             <div class="mt-2">
-                                <img src="images/DoggyLogo.png" class="brand-logo mx-auto d-block img-fluid" />
+                                <img src="images/DoggyLogo.png" class="mx-auto d-block img-fluid">
                             </div>
                             <p class="mt-4 text-white lead text-center">
                                 Ingresa a la comunidad Doggy Friends
@@ -37,19 +37,18 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control" id="user-password" placeholder="Contraseña" required>
                                     </div>
-                                    <button type="submit" class="btn btn-primary float-right" id="login-button">Ingresar</button>
+                                    <button type="submit" class="btn btn-warning btn-block" id="login-button">Ingresar</button>
                                 </form>
-                                <div class="clearfix"></div>
-                                <p class="content-divider center mt-4">
+                                <p class="content-divider text-center mt-4">
                                     <span>o ingresa con</span>
                                 </p>
                             </div>
-                            <p class="mt-4 social-login text-center">
-                                <a href="#" class="btn btn-facebook">
-                                    <em class="ion-social-facebook"></em>
-                                </a>
-                                <button class="btn btn-google" id="google-button" type="submit">
-                                    <em class="ion-social-googleplus"></em>
+                            <p class="mt-4 text-center">
+                                <button href="#" class="btn btn-primary">
+                                    <i class="fab fa-facebook-square"></i>
+                                </button>
+                                <button class="btn btn-danger" id="google-button" type="submit">
+                                    <i class="fab fa-google-plus-square"></i>
                                 </button>
                             </p>
                             <p class="text-center">
@@ -59,7 +58,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="clearfix"></div>
             </div>
         </div>
     </section>

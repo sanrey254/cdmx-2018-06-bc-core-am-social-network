@@ -9,21 +9,24 @@
     <meta name="description" content="Esta es una red social para los amantes de los perros">
     <meta name="keywords" content="Red social, perros, cuidados, educación">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="css/loginRegisterStyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/favicon.png">
 </head>
 
 <body>
-    <!--hero section-->
-    <section class="hero">
-        <div class="container">
+    <section class="background-image">
+        <div class="container my-4">
             <div class="row">
                 <div class="col-md-6 col-sm-8 mx-auto">
                     <div class="card border-none">
                         <div class="card-body">
+                            <div class="mt-2">
+                                <img src="images/DoggyLogo.png" class="mx-auto d-block img-fluid">
+                            </div>
                             <div class="mt-2 text-center">
                                 <h2>Regístrate en Doggy Friends</h2>
                             </div>
@@ -41,20 +44,19 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control" name="password" id="user-password" placeholder="Contraseña">
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-block">Crear cuenta</button>
+                                    <button type="submit" class="btn btn-warning btn-block">Crear cuenta</button>
                                 </form>
-                                <div class="clearfix"></div>
-                                <p class="content-divider center mt-4">
+                                <p class="content-divider text-center mt-4">
                                     <span>o ingresa con</span>
                                 </p>
                             </div>
                             <p class="mt-4 social-login text-center">
-                                <a href="#" class="btn btn-facebook">
-                                    <em class="ion-social-facebook"></em>
-                                </a>
-                                <a href="#" class="btn btn-google">
-                                    <em class="ion-social-googleplus"></em>
-                                </a>
+                                <button href="#" class="btn btn-primary">
+                                    <i class="fab fa-facebook-square"></i>
+                                </button>
+                                <button class="btn btn-danger" id="google-button" type="submit">
+                                    <i class="fab fa-google-plus-square"></i>
+                                </button>
                             </p>
                             <p class="text-center">
                                 ¿Ya tienes una cuenta?
@@ -63,7 +65,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="clearfix"></div>
             </div>
         </div>
     </section>

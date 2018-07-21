@@ -38,15 +38,6 @@ window.socialNetwork = {
       });
   },
 
-  /*getCuerrentUserName: () =>{
-  	const user = firebase.auth().currentUser;
-  	if (user != null) {
-  		const name = user.displayName;
-  		const email = user.email;
-  		console.log(name, email);
-  	}
-  },*/
-
   // Ingreso con correo de Google
   loginWithGoogle: () => {
     // Comprueba que el usaurio no haya ingresado antes, que no tenga una sesión activa.
@@ -55,10 +46,6 @@ window.socialNetwork = {
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
       firebase.auth().signInWithPopup(provider).then(result => {
-        // Datos obtenido después de hacer la conexión
-        const token = result.credential.accessToken;
-        const user = result.user;
-        const name = result.user.displayName;
         location.href = ('views/timeLine.html');
         // Errores en la conexión
       }).catch(error => {
@@ -66,11 +53,6 @@ window.socialNetwork = {
         const errorMessage = error.message;
         const email = error.email;
         const credential = error.credential;
-        if (errorCode === 'auth/wrong-password') {
-        	alert('Contraseña invalida');
-        } else if (errorCode === 'auth/user-not-found' || errorCode === 'auth/invalid-email') {
-          alert('Información de ingreso invalida');
-        }
         if (errorCode === 'auth/account-exists-with-different-credential') {
           alert('Están intentando ingresar con un usuario ya existente');
         }
