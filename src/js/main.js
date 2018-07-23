@@ -9,6 +9,6 @@ document.getElementById('login-button').addEventListener('click', event => {
 
 
 document.getElementById('google-button').addEventListener('click', event =>{
-    event.preventDefault();
-    socialNetwork.loginWithGoogle();
+  event.preventDefault();
+  socialNetwork.loginWithGoogle();
 });
