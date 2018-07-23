@@ -14,7 +14,7 @@ const setUserProfile = user =>{
   if (user.photoURL === null) {
     userPhoto.src = '../images/user-default2.jpg';
   } else {
-    userPhoto.src = user.photoURL;
+    userPhoto.src = `${user.photoURL}?height=300`;
   }
 };
 
