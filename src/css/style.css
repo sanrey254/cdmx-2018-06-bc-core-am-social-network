@@ -45,3 +45,12 @@
 .form-control:focus{
     box-shadow: none;
 }
+
+.no-btn{
+    border: none;
+    background-color: inherit;
+}
+
+.no-btn:hover{
+    color: #ffc107;
+}

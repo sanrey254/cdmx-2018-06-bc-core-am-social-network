@@ -16,7 +16,6 @@ const getCurrentUserData = () =>{
   firebase.auth().onAuthStateChanged(user => {
 	  if (user) {
       setUserProfile(user);
-	    
 	    document.getElementById('send-post').addEventListener('click', event =>{
         event.preventDefault();
         let datePost = `${new Date()}`;
@@ -25,6 +24,7 @@ const getCurrentUserData = () =>{
 				    userID: user.uid,
 				    userEmail: user.email,
 				    time: datePost,
+            likes: 0,
 				    content: contentPost
         })
           .then(result => {
@@ -40,22 +40,24 @@ const getCurrentUserData = () =>{
           });
       });
 	  } else {
-	    console.log('No hay ningun usuario registrado');
+      location.href = ('../index.html');
 	  }
   });
-};
+}
 
 
 const drawPostByUser = () =>{
-  const postRef = db.collection('post');
-  postRef.orderBy('time', 'asc');
+  const postRef = db.collection('post').orderBy("time", "desc");
   postRef.get()
     .then(element =>{
       let result = '';
       let i = 0;
       element.forEach(post =>{
           result += `<div class="card mb-4 border-secondary">
-                      <div class="card-header"><strong>${post.data().userEmail}</strong><p>${post.data().time}</p></div>
+                      <div class="card-header"><div class="container"><div class="row"><div class="col-md-8"><strong>${post.data().userEmail}</strong><p>${post.data().time}</p>
+                      <p>${post.data().likes} <button class="no-btn" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button></p></div><div class="col-md-4 text-right">
+                      <button class="no-btn" onclick="deletePost('${post.id}')"><i class="far fa-trash-alt"></i></button><button class="no-btn" onclick="updatePost('${post.id}')"><i class="ml-3 fas fa-pencil-alt"></i></button></div></div></div>
+                      </div>
                       <div class="card-body">
                         <p class="card-text">${post.data().content}</p>
                       </div>
@@ -65,7 +67,37 @@ const drawPostByUser = () =>{
 
       document.getElementById('list-of-post').innerHTML = result;
     });
-};
+}
+
+const addLikeToPost = (postID) =>{
+  console.log(postID);
+}
+
+const deletePost = (postID) =>{
+  db.collection('post').doc(postID).delete()
+  .then(element => {
+    swal({
+                  confirmButtonText: 'Aceptar',
+                  type: 'success',
+                  title: 'Publicación eliminada'
+                });
+    drawPostByUser();
+  })
+  .catch(element => {
+    swal({
+            confirmButtonText: 'Aceptar',
+            type: 'error',
+            title: 'Error al eliminar la publicación',
+            text: 'Inténtalo de nuevo'
+          });
+  });
+}
+
+const updatePost = (postID) =>{
+
+}
+
+
 
 getCurrentUserData();
 drawPostByUser();
