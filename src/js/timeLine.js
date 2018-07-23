@@ -70,26 +70,41 @@ const drawPostByUser = () =>{
 }
 
 const addLikeToPost = (postID) =>{
-  console.log(postID);
+  let currentLikes;
+  db.collection('post').doc(postID).get()
+  .then(post =>{
+   db.collection('post').doc(postID).update({
+      likes: post.data().likes += 1
+    })
+    .then(element =>{
+        drawPostByUser();
+    }).catch(element =>{
+      console.log('Error al aumentar contador de likes');
+    });
+
+  });
+
+  
+
 }
 
 const deletePost = (postID) =>{
   db.collection('post').doc(postID).delete()
   .then(element => {
     swal({
-                  confirmButtonText: 'Aceptar',
-                  type: 'success',
-                  title: 'Publicación eliminada'
-                });
+          confirmButtonText: 'Aceptar',
+          type: 'success',
+          title: 'Publicación eliminada'
+        });
     drawPostByUser();
   })
   .catch(element => {
     swal({
-            confirmButtonText: 'Aceptar',
-            type: 'error',
-            title: 'Error al eliminar la publicación',
-            text: 'Inténtalo de nuevo'
-          });
+      confirmButtonText: 'Aceptar',
+      type: 'error',
+      title: 'Error al eliminar la publicación',
+      text: 'Inténtalo de nuevo'
+    });
   });
 }
 
