@@ -74,6 +74,7 @@ window.socialNetwork = {
         // Errores en la conexión
       }).catch(error => {
         const errorCode = error.code;
+        console.log(errorCode);
         const errorMessage = error.message;
         const email = error.email;
         const credential = error.credential;
