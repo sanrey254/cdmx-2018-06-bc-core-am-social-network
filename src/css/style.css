@@ -54,3 +54,11 @@
 .no-btn:hover{
     color: #ffc107;
 }
+
+.small-font{
+    font-size: 14px;
+}
+
+.profile-image{
+    width: 70%;
+}

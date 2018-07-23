@@ -19,6 +19,7 @@ const setUserProfile = user =>{
 };
 
 const getCurrentUserData = () =>{
+  let userPhotoLink;
   firebase.auth().onAuthStateChanged(user => {
 	  if (user) {
       setUserProfile(user);
@@ -26,11 +27,17 @@ const getCurrentUserData = () =>{
         event.preventDefault();
         let datePost = `${new Date()}`;
         const contentPost = document.getElementById('user-content-post').value;
+        if(user.photoURL === null){
+          userPhotoLink = '../images/user-default2.jpg';
+        }else{
+          userPhotoLink = user.photoURL;
+        }
         db.collection('post').add({
 				    userID: user.uid,
 				    userName: user.displayName,
+            userPhoto: userPhotoLink,
 				    time: datePost,
-          likes: 0,
+            likes: 0,
 				    content: contentPost
         }).then(result => {
   			    swal({
@@ -50,7 +57,6 @@ const getCurrentUserData = () =>{
   });
 };
 
-
 const drawPostByUser = () =>{
   const postRef = db.collection('post').orderBy('time', 'desc');
 
@@ -59,12 +65,13 @@ const drawPostByUser = () =>{
       let result = '';
       let i = 0;
       element.forEach(post => {
+       // let userInfo = getUsersTable(post.data().userID);
+        //console.log(userInfo);
         result += `<div class="card mb-4 border-secondary">
-          <div class="card-header"><div class="container"><div class="row"><div class="col-md-8"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div><div class="col-md-4 text-md-right text-center">${post.data().likes} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button>
-          <button class="no-btn" onclick="deletePost('${post.id}')"><i class="far fa-trash-alt"></i></button><button class="no-btn" onclick="updatePost('${post.id}')"><i class="ml-3 fas fa-pencil-alt"></i></button></div></div></div>
-          </div>
           <div class="card-body">
             <p class="card-text">${post.data().content}</p>
+          </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 pr-0"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button>
+          <button class="no-btn" onclick="deletePost('${post.id}')"><i class="far fa-trash-alt"></i></button><button class="no-btn" onclick="updatePost('${post.id}')"><i class="ml-3 fas fa-pencil-alt"></i></button></div></div></div>
           </div>
         </div>`;
         i++;
