@@ -68,6 +68,7 @@ window.socialNetwork = {
     if (!firebase.auth().currentUser) {
       // Crear un nuevo objeto para realizar la conexión con la API de google
       const provider = new firebase.auth.FacebookAuthProvider();
+      provider.addScope('public_profile');
       firebase.auth().signInWithPopup(provider).then(result => {
         location.href = ('views/timeLine.html');
         // Errores en la conexión
