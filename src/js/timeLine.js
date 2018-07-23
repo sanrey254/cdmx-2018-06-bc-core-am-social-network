@@ -2,6 +2,11 @@
 socialNetwork.initializeFirebase();
 let db = firebase.firestore();
 
+document.getElementById('sign-out').addEventListener('click', event =>{
+  event.preventDefault();
+  socialNetwork.signOut();
+})
+
 const setUserProfile = user =>{
   document.getElementById('current-user-name').innerHTML = user.email;
   userPhoto = document.getElementById('user-image');

@@ -12,3 +12,10 @@ document.getElementById('google-button').addEventListener('click', event =>{
   event.preventDefault();
   socialNetwork.loginWithGoogle();
 });
+
+
+document.getElementById('facebook-button').addEventListener('click', event =>{
+  event.preventDefault();
+  socialNetwork.loginWithFacebook();
+});
+
