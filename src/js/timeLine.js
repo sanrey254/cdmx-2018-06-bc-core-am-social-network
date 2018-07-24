@@ -60,14 +60,11 @@ const getCurrentUserData = () =>{
 
 const drawPostByUser = () =>{
   const postRef = db.collection('post').orderBy('time', 'desc');
-
   postRef.get()
     .then(element => {
       let result = '';
       let i = 0;
       element.forEach(post => {
-       // let userInfo = getUsersTable(post.data().userID);
-        //console.log(userInfo);
         result += `<div class="card mb-4 border-secondary">
           <div class="card-body">
             <p class="card-text" id="${post.id}">${post.data().content}</p>
@@ -125,7 +122,6 @@ const createUpdateArea = postID =>{
 
 const updatePostContent = postID => {
   const postContent = document.getElementById(`post${postID}`).value;
-  console.log(postContent);
    db.collection('post').doc(postID).get()
     .then(post => {
       db.collection('post').doc(postID).update({
@@ -133,7 +129,7 @@ const updatePostContent = postID => {
       }).then(element => {
         drawPostByUser();
       }).catch(element => {
-        console.log('Error al aumentar contador de likes');
+        console.log('Error al editar la publicación');
       });
     });
 }
