@@ -59,23 +59,40 @@ const getCurrentUserData = () => {
 };
 
 const drawPostByUser = () => {
-  const postRef = db.collection('post').orderBy('time', 'desc');
-  postRef.get()
-    .then(element => {
-      let result = '';
-      let i = 0;
-      element.forEach(post => {
-        result += `<div class="card mb-4 border-secondary">
-          <div class="card-body">
-            <p class="card-text" id="${post.id}">${post.data().content}</p>
-          </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 px-0 px-md-2 col-2"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-10 col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button>
-          <button class="no-btn" onclick="deletePost('${post.id}')"><i class="far fa-trash-alt"></i></button><button class="no-btn" onclick="createUpdateArea('${post.id}')"><i class="ml-3 fas fa-pencil-alt"></i></button></div></div></div>
-          </div>
-        </div>`;
-        i++;
+  firebase.auth().onAuthStateChanged(user => {
+    if(user){
+      const currentUserID = user.uid;
+      const postRef = db.collection('post').orderBy('time', 'desc');
+      postRef.get()
+      .then(element => {
+        let result = '';
+        element.forEach(post => {
+          if(currentUserID === post.data().userID){
+            result += `<div class="card mb-4 border-secondary">
+            <div class="card-body">
+              <p class="card-text" id="${post.id}">${post.data().content}</p>
+            </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 px-0 px-md-2 col-2"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-10 col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button>
+            <button class="no-btn" onclick="deletePost('${post.id}')"><i class="far fa-trash-alt"></i></button><button class="no-btn" onclick="createUpdateArea('${post.id}')"><i class="ml-3 fas fa-pencil-alt"></i></button></div></div></div>
+            </div>
+          </div>`;
+          }else{
+            result += `<div class="card mb-4 border-secondary">
+            <div class="card-body">
+              <p class="card-text" id="${post.id}">${post.data().content}</p>
+            </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 px-0 px-md-2 col-2"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-10 col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button></div></div></div>
+            </div>
+          </div>`;
+          }
+          
+        });
+        document.getElementById('list-of-post').innerHTML = result;
       });
-      document.getElementById('list-of-post').innerHTML = result;
-    });
+    }else{
+      location.href = ('../index.html');
+    }
+  });
+
+  
 };
 
 const addLikeToPost = (postID) => {
