@@ -41,8 +41,7 @@ Tambien pudimos observar que no todos estos sitios cuentan con una cuenta person
  friends” y tener una cuenta de usuario para obtener tips y recomendaciones de como educar a mi perrito.
 
 ## Flujo de la red social (first-movile)
-*/link de la pagina de powerpoint/*
-https://docs.google.com/presentation/d/1rExVXwxnWtihbMGpVw8P8-LTgi4gPU7z-sEK2EAYpCo/edit
+https://docs.google.com/presentation/d/1AlQU0C1uLOuLUVwPQnVKuf083YzqZTo8jl6e21wA3Po/edit#slide=id.p1
 En el flujo vamos a poder observar como es que seria el ideal para que un usuario pueda registrarse con sus diferentes redes o si bien lo prefiere con su correo o creando una cuenta manualmente.
 
 ## Encuesta
