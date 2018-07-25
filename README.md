@@ -21,11 +21,13 @@ Entre enero y noviembre del 2017 de este año la BVA ha brindado atención espec
 
 ## Benchmark
 
-Se hizo una invettigcion acerca de las redes sociales que ya existen y esta es la informacion que se encontro:
+Se hizo una investigación acerca de las redes sociales que ya existen y esta es la informacion que se encontro:
 
 ![imagen1](src/images/image1-readme.png)
 
 Como pudimos observar todas ofrecen diferentes servicios  pero ninguno es especializado.Todas ofrecen un poco de todos.
+
+Tambien pudimos observar que no todos estos sitios cuentan con una cuenta personal para poder guardar la informacion que al usuario le ha agradado y no tien la faiclidad de poderse coenctar con una cuenta de correo o con una red social.
 
 ## Historias de usuario
 
@@ -33,4 +35,15 @@ Como pudimos observar todas ofrecen diferentes servicios  pero ninguno es especi
 
 * Yo como usuaria joven quiero poder tener conexiones con personas que ya han educado a sus perros y me puedan dar tips para poder educar a mi perrito.
 
-* Yo como usuaria joven quiero poder acceder a la red social “Doggy friends” y tener una cuenta de usuario para obtener tips y recomendaciones de como educar a mi perrito.
+* Yo como usuaria joven quiero poder acceder a la red social “Doggy
+ friends” y tener una cuenta de usuario para obtener tips y recomendaciones de como educar a mi perrito.
+
+## Flujo de la red social (first-movile)
+*/link de la pagina de powerpoint/*
+https://drive.google.com/drive/my-drive
+En el flujo vamos a poder observar como es que seria el ideal para que un usuario pueda registrarse con sus diferentes redes o si bien lo prefiere con su correo o creando una cuenta manualmente.
+
+## Encuesta
+Se realizara una encuesta en la cual se podran observar los habitos de consumo tando para sus caninos, y la importancia que ellos le dan a la educacion de sus perrhijos.
+
+https://docs.google.com/forms/d/1xrfGHiCvT1u7W0mNYo0fALyWee3_ojYLnTJVarjU5aE/edit
