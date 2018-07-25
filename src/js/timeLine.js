@@ -2,13 +2,13 @@
 socialNetwork.initializeFirebase();
 let db = firebase.firestore();
 
-document.getElementById('sign-out').addEventListener('click', event =>{
+document.getElementById('sign-out').addEventListener('click', event => {
   event.preventDefault();
   socialNetwork.signOut();
-})
+});
 
 
-const setUserProfile = user =>{
+const setUserProfile = user => {
   document.getElementById('current-user-name').innerHTML = user.displayName;
   document.getElementById('current-user-email').innerHTML = user.email;
   userPhoto = document.getElementById('user-image');
@@ -19,46 +19,46 @@ const setUserProfile = user =>{
   }
 };
 
-const getCurrentUserData = () =>{
+const getCurrentUserData = () => {
   let userPhotoLink;
   firebase.auth().onAuthStateChanged(user => {
-	  if (user) {
+    if (user) {
       setUserProfile(user);
-	    document.getElementById('send-post').addEventListener('click', event =>{
+      document.getElementById('send-post').addEventListener('click', event => {
         event.preventDefault();
         let datePost = `${new Date()}`;
         const contentPost = document.getElementById('user-content-post').value;
-        if(user.photoURL === null){
+        if (user.photoURL === null) {
           userPhotoLink = '../images/user-default2.jpg';
-        }else{
+        } else {
           userPhotoLink = user.photoURL;
         }
         db.collection('post').add({
-				    userID: user.uid,
-				    userName: user.displayName,
-            userPhoto: userPhotoLink,
-				    time: datePost,
-            likes: 0,
-				    content: contentPost
+          userID: user.uid,
+          userName: user.displayName,
+          userPhoto: userPhotoLink,
+          time: datePost,
+          likes: 0,
+          content: contentPost
         }).then(result => {
-  			    swal({
-  	        	  	confirmButtonText: 'Aceptar',
-  		            type: 'success',
-  		            title: 'Publicación exitosa'
-            		});
-  			    document.getElementById('user-content-post').value = '';
-  			    drawPostByUser();  
+          swal({
+            confirmButtonText: 'Aceptar',
+            type: 'success',
+            title: 'Publicación exitosa'
+          });
+          document.getElementById('user-content-post').value = '';
+          drawPostByUser();
         }).catch(error => {
-			       console.error('Error adding document: ', error);
+          console.error('Error adding document: ', error);
         });
       });
-	  } else {
+    } else {
       location.href = ('../index.html');
-	  }
+    }
   });
 };
 
-const drawPostByUser = () =>{
+const drawPostByUser = () => {
   const postRef = db.collection('post').orderBy('time', 'desc');
   postRef.get()
     .then(element => {
@@ -92,37 +92,48 @@ const addLikeToPost = (postID) => {
     });
 };
 
-const deletePost = (postID) =>{
-  db.collection('post').doc(postID).delete()
-    .then(element => {
-      swal({
-        confirmButtonText: 'Aceptar',
-        type: 'success',
-        title: 'Publicación eliminada'
-      });
-      drawPostByUser();
-    }).catch(element => {
-      swal({
-        confirmButtonText: 'Aceptar',
-        type: 'error',
-        title: 'Error al eliminar la publicación',
-        text: 'Inténtalo de nuevo'
-      });
-    });
+const deletePost = (postID) => {
+  swal({
+    title: '¿Estas seguro de eliminar la publicación?',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#ffc107',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Aceptar'
+  }).then(confirm => {
+    if (confirm.value) {
+      db.collection('post').doc(postID).delete()
+        .then(element => {
+          swal({
+            confirmButtonText: 'Aceptar',
+            type: 'success',
+            title: 'Publicación eliminada'
+          });
+          drawPostByUser();
+        }).catch(element => {
+          swal({
+            confirmButtonText: 'Aceptar',
+            type: 'error',
+            title: 'Error al eliminar la publicación',
+            text: 'Inténtalo de nuevo'
+          });
+        });
+    }
+  });
 };
 
-const createUpdateArea = postID =>{
+const createUpdateArea = postID => {
   db.collection('post').doc(postID).get()
-  .then(post => {
-    document.getElementById(postID).innerHTML = `<textarea class="form-control form-textarea" id="post${postID}" rows="4">${post.data().content}</textarea><div class="ml-auto text-right"><button class="btn btn-warning" onclick="updatePostContent('${postID}')"><i class="fas fa-save"></i></button><div>`;
-  }).catch(error => {
-    console.log('Error al editar');
-  })
+    .then(post => {
+      document.getElementById(postID).innerHTML = `<textarea class="form-control form-textarea" id="post${postID}" rows="4">${post.data().content}</textarea><div class="ml-auto text-right"><button class="btn btn-warning" onclick="updatePostContent('${postID}')"><i class="fas fa-save"></i></button><div>`;
+    }).catch(error => {
+      console.log('Error al editar');
+    });
 };
 
 const updatePostContent = postID => {
   const postContent = document.getElementById(`post${postID}`).value;
-   db.collection('post').doc(postID).get()
+  db.collection('post').doc(postID).get()
     .then(post => {
       db.collection('post').doc(postID).update({
         content: postContent
@@ -132,7 +143,7 @@ const updatePostContent = postID => {
         console.log('Error al editar la publicación');
       });
     });
-}
+};
 
 
 getCurrentUserData();

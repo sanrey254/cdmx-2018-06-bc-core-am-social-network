@@ -62,7 +62,7 @@ window.socialNetwork = {
     }
   },
 
-   // Ingreso con correo de Google
+  // Ingreso con correo de Google
   loginWithFacebook: () => {
     // Comprueba que el usaurio no haya ingresado antes, que no tenga una sesión activa.
     if (!firebase.auth().currentUser) {
@@ -89,10 +89,10 @@ window.socialNetwork = {
 
   signOut: () => {
     firebase.auth().signOut()
-    .then(element =>{
-      location.href('../index.html');
-    }).catch(error =>{
-      console.log('Error al cerrar sesión');
-    });
+      .then(element =>{
+        location.href('../index.html');
+      }).catch(error =>{
+        console.log('Error al cerrar sesión');
+      });
   }
 };
