@@ -9,7 +9,11 @@ document.getElementById('sign-out').addEventListener('click', event => {
 
 
 const setUserProfile = user => {
-  document.getElementById('current-user-name').innerHTML = user.displayName;
+  if(user.displayName === null){
+    document.getElementById('current-user-name').innerHTML = user.email;
+  }else{
+    document.getElementById('current-user-name').innerHTML = user.displayName;
+  }
   document.getElementById('current-user-email').innerHTML = user.email;
   userPhoto = document.getElementById('user-image');
   if (user.photoURL === null) {
@@ -21,6 +25,7 @@ const setUserProfile = user => {
 
 const getCurrentUserData = () => {
   let userPhotoLink;
+  let currentName;
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       setUserProfile(user);
@@ -33,9 +38,15 @@ const getCurrentUserData = () => {
         } else {
           userPhotoLink = user.photoURL;
         }
+
+        if(user.displayName === null){
+          currentName = user.email;
+        }else{
+          currentName = user.displayName;
+        }
         db.collection('post').add({
           userID: user.uid,
-          userName: user.displayName,
+          userName: currentName,
           userPhoto: userPhotoLink,
           time: datePost,
           likes: [],

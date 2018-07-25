@@ -79,7 +79,12 @@ window.socialNetwork = {
         const email = error.email;
         const credential = error.credential;
         if (errorCode === 'auth/account-exists-with-different-credential') {
-          alert('Están intentando ingresar con un usuario ya existente');
+          swal({
+            confirmButtonText: 'Aceptar',
+            type: 'error',
+            title: 'Ya existe un usuario registrado con la dirección de correo proporcionada',
+            text: 'Inténtalo de nuevo'
+          });
         }
       });
     } else {
@@ -87,6 +92,54 @@ window.socialNetwork = {
     }
   },
 
+  createNewAccount: (email, password) => {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(result => {
+      const user = firebase.auth().currentUser;
+      user.sendEmailVerification().then(result =>{
+        console.log('Correo enviado');
+        swal({
+            confirmButtonText: 'Aceptar',
+            type: 'success',
+            title: 'Se ha enviado un enlace de verificación a tu cuenta de coreo',
+            text: 'Sigue las instrucciones para ingresar a tu cuenta'
+          });
+        signOut();
+      }).catch(error =>{
+        console.log('Error al enviar correo de verificación')
+      })
+      
+    })
+    .catch(error => {
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      if (errorCode === 'auth/invalid-email') {
+        swal({
+            confirmButtonText: 'Aceptar',
+            type: 'error',
+            title: 'Dirección de correo inválida',
+            text: 'Inténtalo de nuevo'
+          });
+      } else if (errorCode === 'auth/weak-password') {
+        swal({
+            confirmButtonText: 'Aceptar',
+            type: 'error',
+            title: 'Contraseña inválida',
+            text: 'Inténtalo de nuevo'
+          });
+      } else if (errorCode === 'auth/email-already-in-use') {
+        swal({
+            confirmButtonText: 'Aceptar',
+            type: 'error',
+            title: 'Ya existe un usuario registrado con la dirección de correo proporcionada',
+            text: 'Inténtalo de nuevo'
+          });
+      }
+    });
+  },
+
+
+  //Cerrar sesión
   signOut: () => {
     firebase.auth().signOut()
       .then(element =>{
