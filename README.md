@@ -25,6 +25,8 @@ Se hizo una investigación acerca de las redes sociales que ya existen y esta es
 
 ![imagen1](src/images/image1-readme.png)
 
+https://docs.google.com/spreadsheets/d/14MUsGsPO_HqadCDgS_DZp7BSeOWZm7JXdWEd1BaX3KM/edit#gid=1319909757
+
 Como pudimos observar todas ofrecen diferentes servicios  pero ninguno es especializado.Todas ofrecen un poco de todos.
 
 Tambien pudimos observar que no todos estos sitios cuentan con una cuenta personal para poder guardar la informacion que al usuario le ha agradado y no tien la faiclidad de poderse coenctar con una cuenta de correo o con una red social.
@@ -40,7 +42,7 @@ Tambien pudimos observar que no todos estos sitios cuentan con una cuenta person
 
 ## Flujo de la red social (first-movile)
 */link de la pagina de powerpoint/*
-https://drive.google.com/drive/my-drive
+https://docs.google.com/presentation/d/1rExVXwxnWtihbMGpVw8P8-LTgi4gPU7z-sEK2EAYpCo/edit
 En el flujo vamos a poder observar como es que seria el ideal para que un usuario pueda registrarse con sus diferentes redes o si bien lo prefiere con su correo o creando una cuenta manualmente.
 
 ## Encuesta
