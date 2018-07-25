@@ -71,7 +71,7 @@ const drawPostByUser = () => {
             result += `<div class="card mb-4 border-secondary">
             <div class="card-body">
               <p class="card-text" id="${post.id}">${post.data().content}</p>
-            </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 px-0 px-md-2 col-2"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-10 col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes.lenght} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button>
+            </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 px-0 px-md-2 col-2"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-10 col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes.length} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button>
             <button class="no-btn" onclick="deletePost('${post.id}')"><i class="far fa-trash-alt"></i></button><button class="no-btn" onclick="createUpdateArea('${post.id}')"><i class="ml-3 fas fa-pencil-alt"></i></button></div></div></div>
             </div>
           </div>`;
@@ -99,7 +99,6 @@ const checkUserIDforLike = (userID, likes) =>{
       exist+=1;
     }
   })
-  console.log(exist);
   if(exist >= 1){
     return true;
   }else{
@@ -114,7 +113,6 @@ const addLikeToPost = (postID) => {
       db.collection('post').doc(postID).get()
       .then(post => {
         const checkUserLike = checkUserIDforLike(currentUserID,post.data().likes);
-        console.log(checkUserLike);
         if(!checkUserLike){
           currentUserLikes = post.data().likes
           currentUserLikes.push(`${currentUserID}`);
