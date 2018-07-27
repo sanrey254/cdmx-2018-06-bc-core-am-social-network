@@ -31,7 +31,7 @@ const getCurrentUserData = () => {
       setUserProfile(user);
       document.getElementById('send-post').addEventListener('click', event => {
         event.preventDefault();
-        let datePost = `${new Date()}`;
+        let datePost = firebase.firestore.FieldValue.serverTimestamp();
         const contentPost = document.getElementById('user-content-post').value;
         if (user.photoURL === null) {
           userPhotoLink = '../images/user-default2.jpg';
@@ -111,7 +111,7 @@ const checkUserIDforLike = (userID, likes) =>{
     }
   })
   if(exist >= 1){
-    return true;
+    return exist;
   }else{
     return false;
   }
@@ -123,9 +123,9 @@ const addLikeToPost = (postID) => {
       const currentUserID = user.uid;
       db.collection('post').doc(postID).get()
       .then(post => {
+        let currentUserLikes = post.data().likes;
         const checkUserLike = checkUserIDforLike(currentUserID,post.data().likes);
         if(!checkUserLike){
-          currentUserLikes = post.data().likes
           currentUserLikes.push(`${currentUserID}`);
           db.collection('post').doc(postID).update({
             likes: currentUserLikes
@@ -134,6 +134,10 @@ const addLikeToPost = (postID) => {
             }).catch(element => {
               console.log('Error al aumentar contador de likes');
           });
+        }else{
+          console.log(checkUserLike);
+          //currentUserLikes.splice();
+
         }
       });
     }else{

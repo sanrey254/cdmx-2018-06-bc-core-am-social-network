@@ -106,7 +106,7 @@ window.socialNetwork = {
           });
         signOut();
       }).catch(error =>{
-        console.log('Error al enviar correo de verificación')
+        console.log('Error al enviar correo de verificación');
       })
       
     })
