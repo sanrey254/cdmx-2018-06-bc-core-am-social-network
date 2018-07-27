@@ -104,16 +104,11 @@ const drawPostByUser = () => {
 };
 
 const checkUserIDforLike = (userID, likes) =>{
-  let exist = 0;
-  likes.forEach(element =>{
-    if(element === userID){
-      exist+=1;
-    }
-  })
-  if(exist >= 1){
-    return exist;
+  const positionUserID = likes.indexOf(userID);
+  if(positionUserID === -1){
+    return true;
   }else{
-    return false;
+    return positionUserID;
   }
 }
 
@@ -125,7 +120,7 @@ const addLikeToPost = (postID) => {
       .then(post => {
         let currentUserLikes = post.data().likes;
         const checkUserLike = checkUserIDforLike(currentUserID,post.data().likes);
-        if(!checkUserLike){
+        if(checkUserLike){
           currentUserLikes.push(`${currentUserID}`);
           db.collection('post').doc(postID).update({
             likes: currentUserLikes
@@ -135,9 +130,14 @@ const addLikeToPost = (postID) => {
               console.log('Error al aumentar contador de likes');
           });
         }else{
-          console.log(checkUserLike);
-          //currentUserLikes.splice();
-
+          currentUserLikes.splice(checkUserLike, 1);
+          db.collection('post').doc(postID).update({
+            likes: currentUserLikes
+            }).then(element => {
+              drawPostByUser();
+            }).catch(element => {
+              console.log('Error al aumentar contador de likes');
+          });
         }
       });
     }else{
