@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Red social para compartir y promover la edución de nuestras mascotas.">
   <meta name="keywords" content="Red social, perros, cuidados, educación">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
@@ -21,42 +22,40 @@
     <div class="container my-4">
       <div class="row">
         <div class="col-md-6 col-sm-8 mx-auto">
-          <div class="card">
+          <div class="card border-none">
             <div class="card-body">
               <div class="mt-2">
                 <img src="images/DoggyLogo.png" class="mx-auto d-block img-fluid">
               </div>
-              <p class="mt-2 lead text-center">
-                Ingresa a la comunidad Doggy Friends
-              </p>
+              <p class="mt-2 text-center">Regístrate y accede a nuestra comunidad</p>
               <div class="mt-4">
                 <form>
                   <div class="form-group">
-                    <input type="email" class="form-control" id="user-email" placeholder="Correo" id="user-email" required>
+                    <input type="text" class="form-control" name="name" placeholder="Nombre" id="user-name">
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control" id="user-password" placeholder="Contraseña" required>
+                    <input type="email" class="form-control" name="email" placeholder="Correo" id="user-email">
                   </div>
-                  <button type="submit" class="btn btn-warning btn-block" id="login-button">Ingresar</button>
+                  <div class="form-group">
+                    <input type="password" class="form-control" name="password" id="user-password" placeholder="Contraseña">
+                  </div>
+                  <button id="register-button" class="btn btn-warning btn-block">Crear cuenta</button>
                 </form>
                 <p class="content-divider text-center mt-4">
                   <span>o ingresa con</span>
                 </p>
               </div>
-              <p class="mt-4 text-center">
-                <button id="facebook-button" class="btn btn-primary">
+              <p class="mt-4 social-login text-center">
+                <button class="btn btn-primary" id="facebook-button">
                   <i class="fab fa-facebook-square"></i>
                 </button>
                 <button class="btn btn-danger" id="google-button">
                   <i class="fab fa-google-plus-square"></i>
                 </button>
-                <button class="btn btn-secondary" id="github-button">
-                  <i class="fab fa-github"></i>
-                </button>
               </p>
               <p class="text-center">
-                ¿Todavía no tienes una cuenta?
-                <a href="register.html">Regístrate</a>
+                ¿Ya tienes una cuenta?
+                <a href="index.html">Ingresa</a>
               </p>
             </div>
           </div>
@@ -67,7 +66,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src="js/firebase.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/register.js"></script>
 </body>
 
 </html>

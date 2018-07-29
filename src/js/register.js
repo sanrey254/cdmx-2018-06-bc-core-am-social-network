@@ -18,3 +18,8 @@ document.getElementById('facebook-button').addEventListener('click', event =>{
   event.preventDefault();
   socialNetwork.loginWithFacebook();
 });
+
+document.getElementById('github-button').addEventListener('click', event =>{
+  event.preventDefault();
+  socialNetwork.loginWithGitHub();
+});

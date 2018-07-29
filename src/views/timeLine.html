@@ -3,66 +3,84 @@
 
 <head>
   <title>Doggy Friends | Comunidad para los amantes de los perros</title>
-    <meta charset="utf-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Red social para compartir y promover la edución de nuestras mascotas.">
-    <meta name="keywords" content="Red social, perros, cuidados, educación">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="shortcut icon" href="../images/favicon.png">
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Red social para compartir y promover la edución de nuestras mascotas.">
+  <meta name="keywords" content="Red social, perros, cuidados, educación">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="shortcut icon" href="../images/favicon.png">
 </head>
 
 <body class="bg-pattern">
   <nav class="navbar navbar-expand-lg navbar-light bg-black fixed-top">
-    <a class="navbar-brand" href="#"><img src="../images/DoggyLogo2.png" style="height: 50px"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">
+      <img src="../images/DoggyLogo2.png" style="height: 50px">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
       <ul class="navbar-nav align-content-end">
         <li class="nav-item dropleft">
-          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle"></i>
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-user-circle"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#"><i class="fas fa-user-edit"></i> Mi perfil</a>
-            <a class="dropdown-item" href="#"><i class="fas fa-users"></i> Mis amigos</a>
+            <a class="dropdown-item" href="#">
+              <i class="fas fa-user-edit"></i> Mi perfil</a>
+            <a class="dropdown-item" href="#">
+              <i class="fas fa-users"></i> Mis amigos</a>
             <div class="dropdown-divider"></div>
-            <button class="dropdown-item no-btn" id="sign-out"><i class="fas fa-user-times"></i> Cerrar Sesión</button>
+            <button class="dropdown-item no-btn" id="sign-out">
+              <i class="fas fa-user-times"></i> Cerrar Sesión</button>
           </div>
         </li>
       </ul>
       <form class="form-inline my-2 my-md-0">
         <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
-        <button class="btn btn-warning my-2 my-sm-0"><i class="fas fa-search"></i></button>
+        <button class="btn btn-warning my-2 my-sm-0">
+          <i class="fas fa-search"></i>
+        </button>
       </form>
     </div>
   </nav>
   <section id="user-profile">
     <div class="container-fluid mt-6">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 d-none d-sm-none d-md-block">
           <div class="card border-secondary" style="width:100%">
             <img class="card-img-top" style="width:100%" id="user-image">
             <div class="card-body text-center">
-              <p><i class="fas fa-user"></i> <strong id="current-user-name"></strong></p>
-              <p><i class="far fa-envelope"></i> <span id="current-user-email"></span></p>
+              <p>
+                <i class="fas fa-user"></i>
+                <strong id="current-user-name"></strong>
+              </p>
+              <p>
+                <i class="far fa-envelope"></i>
+                <span id="current-user-email"></span>
+              </p>
               <p class="card-text" id="presentacion">I am a professional student designer i love my work so hire me !!</p>
             </div>
           </div>
         </div>
-        <div class="col-md-9" >
+        <div class="col-md-9">
           <div class="card mb-5 border-secondary mt-3 mt-md-0">
             <div class="card-body">
               <form class="form-inline">
-                <textarea  id="user-content-post" class="form-control form-textarea" rows="3" placeholder="Escribe una publicación"></textarea>
+                <textarea id="user-content-post" class="form-control form-textarea" placeholder="Escribe una publicación"></textarea>
                 <div class="ml-auto">
-                  <button class="btn btn-warning mt-2" id="send-post"><i class="fas fa-location-arrow"></i></button>
+                  <button class="btn btn-warning mt-2" id="send-post">
+                    <i class="fas fa-location-arrow"></i>
+                  </button>
                 </div>
-                
+
               </form>
             </div>
           </div>
@@ -72,8 +90,10 @@
       </div>
     </div>
   </section>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
   <script src="../js/firebase.js"></script>

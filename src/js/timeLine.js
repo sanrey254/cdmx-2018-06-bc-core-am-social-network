@@ -7,11 +7,10 @@ document.getElementById('sign-out').addEventListener('click', event => {
   socialNetwork.signOut();
 });
 
-
 const setUserProfile = user => {
-  if(user.displayName === null){
+  if (user.displayName === null) {
     document.getElementById('current-user-name').innerHTML = user.email;
-  }else{
+  } else {
     document.getElementById('current-user-name').innerHTML = user.displayName;
   }
   document.getElementById('current-user-email').innerHTML = user.email;
@@ -33,35 +32,36 @@ const getCurrentUserData = () => {
         event.preventDefault();
         let datePost = firebase.firestore.FieldValue.serverTimestamp();
         const contentPost = document.getElementById('user-content-post').value;
-        if (user.photoURL === null) {
-          userPhotoLink = '../images/user-default2.jpg';
-        } else {
-          userPhotoLink = user.photoURL;
-        }
-
-        if(user.displayName === null){
-          currentName = user.email;
-        }else{
-          currentName = user.displayName;
-        }
-        db.collection('post').add({
-          userID: user.uid,
-          userName: currentName,
-          userPhoto: userPhotoLink,
-          time: datePost,
-          likes: [],
-          content: contentPost
-        }).then(result => {
-          swal({
-            confirmButtonText: 'Aceptar',
-            type: 'success',
-            title: 'Publicación exitosa'
+        if (contentPost !== '' && contentPost !== ' ') {
+          if (user.photoURL === null) {
+            userPhotoLink = '../images/user-default2.jpg';
+          } else {
+            userPhotoLink = user.photoURL;
+          }
+          if (user.displayName === null) {
+            currentName = user.email;
+          } else {
+            currentName = user.displayName;
+          }
+          db.collection('post').add({
+            userID: user.uid,
+            userName: currentName,
+            userPhoto: userPhotoLink,
+            time: datePost,
+            likes: [],
+            content: contentPost
+          }).then(result => {
+            swal({
+              confirmButtonText: 'Aceptar',
+              type: 'success',
+              title: 'Publicación exitosa'
+            });
+            document.getElementById('user-content-post').value = '';
+            drawPostByUser();
+          }).catch(error => {
+            console.error('Error adding document: ', error);
           });
-          document.getElementById('user-content-post').value = '';
-          drawPostByUser();
-        }).catch(error => {
-          console.error('Error adding document: ', error);
-        });
+        }
       });
     } else {
       location.href = ('../index.html');
@@ -71,82 +71,80 @@ const getCurrentUserData = () => {
 
 const drawPostByUser = () => {
   firebase.auth().onAuthStateChanged(user => {
-    if(user){
+    if (user) {
       const currentUserID = user.uid;
       const postRef = db.collection('post').orderBy('time', 'desc');
       postRef.get()
-      .then(element => {
-        let result = '';
-        element.forEach(post => {
-          if(currentUserID === post.data().userID){
-            result += `<div class="card mb-4 border-secondary">
+        .then(element => {
+          let result = '';
+          element.forEach(post => {
+            if (currentUserID === post.data().userID) {
+              result += `<div class="card mb-4 border-secondary">
             <div class="card-body">
               <p class="card-text" id="${post.id}">${post.data().content}</p>
             </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 px-0 px-md-2 col-2"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-10 col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes.length} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button>
             <button class="no-btn" onclick="deletePost('${post.id}')"><i class="far fa-trash-alt"></i></button><button class="no-btn" onclick="createUpdateArea('${post.id}')"><i class="ml-3 fas fa-pencil-alt"></i></button></div></div></div>
             </div>
           </div>`;
-          }else{
-            result += `<div class="card mb-4 border-secondary">
+            } else {
+              result += `<div class="card mb-4 border-secondary">
             <div class="card-body">
               <p class="card-text" id="${post.id}">${post.data().content}</p>
             </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 px-0 px-md-2 col-2"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-10 col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes.length} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button></div></div></div>
             </div>
           </div>`;
-          }
+            }
+          });
+          document.getElementById('list-of-post').innerHTML = result;
         });
-        document.getElementById('list-of-post').innerHTML = result;
-      });
-    }else{
+    } else {
       location.href = ('../index.html');
     }
   });
 };
 
-const checkUserIDforLike = (userID, likes) =>{
+const checkUserIDforLike = (userID, likes) => {
   const positionUserID = likes.indexOf(userID);
-  if(positionUserID === -1){
+  if (positionUserID === -1) {
     return true;
-  }else{
+  } else {
     return positionUserID;
   }
 }
 
 const addLikeToPost = (postID) => {
   firebase.auth().onAuthStateChanged(user => {
-    if(user){
+    if (user) {
       const currentUserID = user.uid;
       db.collection('post').doc(postID).get()
-      .then(post => {
-        let currentUserLikes = post.data().likes;
-        const checkUserLike = checkUserIDforLike(currentUserID,post.data().likes);
-        if(checkUserLike){
-          currentUserLikes.push(`${currentUserID}`);
-          db.collection('post').doc(postID).update({
-            likes: currentUserLikes
+        .then(post => {
+          let currentUserLikes = post.data().likes;
+          const checkUserLike = checkUserIDforLike(currentUserID, post.data().likes);
+          if (checkUserLike === true) {
+            currentUserLikes.push(`${currentUserID}`);
+            db.collection('post').doc(postID).update({
+              likes: currentUserLikes
             }).then(element => {
               drawPostByUser();
             }).catch(element => {
               console.log('Error al aumentar contador de likes');
-          });
-        }else{
-          currentUserLikes.splice(checkUserLike, 1);
-          db.collection('post').doc(postID).update({
-            likes: currentUserLikes
+            });
+          } else {
+            currentUserLikes.splice(checkUserLike, 1);
+            db.collection('post').doc(postID).update({
+              likes: currentUserLikes
             }).then(element => {
               drawPostByUser();
             }).catch(element => {
               console.log('Error al aumentar contador de likes');
-          });
-        }
-      });
-    }else{
+            });
+          }
+        });
+    } else {
       location.href = ('../index.html');
     }
-  });  
+  });
 };
-
-
 
 const deletePost = (postID) => {
   swal({
@@ -200,7 +198,6 @@ const updatePostContent = postID => {
       });
     });
 };
-
 
 getCurrentUserData();
 drawPostByUser();

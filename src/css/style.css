@@ -1,13 +1,13 @@
 .background-image{
-    background-image: url('../images/collageDogs.jpg');
-    background-size: cover;
-    background-position: center center;
-    min-height: 100%;
-    min-width: 100%;
-    width: auto;
-    height: auto;
-    margin: 0;
-    position: absolute;
+  background-image: url('../images/collageDogs.jpg');
+  background-size: cover;
+  background-position: center center;
+  min-height: 100%;
+  min-width: 100%;
+  width: auto;
+  height: auto;
+  margin: 0;
+  position: absolute;
 }
 
 .bg-pattern{
@@ -16,49 +16,53 @@
 }
 
 .bg-black{
-    background-color: #2f2619;
+  background-color: #2f2619;
 }
 
 .navbar{
-    padding: 0.05rem 1rem;
+  padding: 0.05rem 1rem;
 }
 
 .navbar-toggler{
-    background-color: #f6e5d1;
-    border: 1px solid #bbaaa0;
+  background-color: #f6e5d1;
+  border: 1px solid #bbaaa0;
 }
 
 .navbar-toggler-icon{
-    border-color: rgb(255,102,203);
+  border-color: rgb(255,102,203);
 }
 
 .mt-6{
-    margin-top: 6rem!important;
+  margin-top: 6rem!important;
 }
 
 .form-textarea{
-    border: none;
-    width: 100%!important;
-    max-height: 100px;
+  border: none;
+  width: 100%!important;
+  max-height: 100px;
 }
 
 .form-control:focus{
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .no-btn{
-    border: none;
-    background-color: inherit;
+  border: none;
+  background-color: inherit;
 }
 
 .no-btn:hover{
-    color: #ffc107;
+  color: #ffc107;
 }
 
 .small-font{
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .profile-image{
-    width: 70%;
+  width: 70%;
+}
+
+.img-fluid {
+  max-width: 70%;
 }
