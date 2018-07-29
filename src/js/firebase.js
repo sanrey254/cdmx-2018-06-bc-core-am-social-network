@@ -45,18 +45,7 @@ window.socialNetwork = {
       // Crear un nuevo objeto para realizar la conexión con la API de google
       const provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-      firebase.auth().signInWithPopup(provider).then(result => {
-        location.href = ('views/timeLine.html');
-        // Errores en la conexión
-      }).catch(error => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = error.credential;
-        if (errorCode === 'auth/account-exists-with-different-credential') {
-          alert('Están intentando ingresar con un usuario ya existente');
-        }
-      });
+      socialNetwork.getPopUpForAccount(provider);
     } else {
       firebase.auth().signOut();
     }
@@ -66,25 +55,7 @@ window.socialNetwork = {
     if (!firebase.auth().currentUser) {
       const provider = new firebase.auth.GithubAuthProvider();
       provider.addScope('repo');
-      firebase.auth().signInWithPopup(provider).then(result => {
-        location.href = ('views/timeLine.html');
-        // Errores en la conexión
-      }).catch(error => {
-        const errorCode = error.code;
-        console.log(errorCode);
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = error.credential;
-        if (errorCode === 'auth/account-exists-with-different-credential') {
-          swal({
-            confirmButtonText: 'Aceptar',
-            type: 'error',
-            title: 'Ya existe un usuario registrado con la dirección de correo proporcionada',
-            text: 'Inténtalo de nuevo'
-          });
-        }
-      });
-
+      socialNetwork.getPopUpForAccount(provider);
     } else {
       firebase.auth().signOut();
     }
@@ -97,7 +68,14 @@ window.socialNetwork = {
       // Crear un nuevo objeto para realizar la conexión con la API de Facebook
       const provider = new firebase.auth.FacebookAuthProvider();
       provider.addScope('public_profile');
-      firebase.auth().signInWithPopup(provider).then(result => {
+      socialNetwork.getPopUpForAccount(provider);
+    } else {
+      firebase.auth().signOut();
+    }
+  },
+
+  getPopUpForAccount: (provider) =>{
+    firebase.auth().signInWithPopup(provider).then(result => {
         location.href = ('views/timeLine.html');
         // Errores en la conexión
       }).catch(error => {
@@ -115,9 +93,6 @@ window.socialNetwork = {
           });
         }
       });
-    } else {
-      firebase.auth().signOut();
-    }
   },
 
   createNewAccount: (email, password) => {
