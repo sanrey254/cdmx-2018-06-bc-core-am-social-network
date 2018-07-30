@@ -1,4 +1,4 @@
-.background-image{
+.background-image{ /* para le collague */
   background-image: url('../images/collageDogs.jpg');
   background-size: cover;
   background-position: center center;
@@ -10,7 +10,7 @@
   position: absolute;
 }
 
-.bg-pattern{
+.bg-pattern{/* fondo */
 	background-image: url("../images/huella.jpg");
 	background-repeat: repeat;
 }

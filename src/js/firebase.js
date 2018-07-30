@@ -15,7 +15,7 @@ window.socialNetwork = {
   loginWithEmailAndPassword: (email, password) => {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(result => {
-        location.href = ('views/timeLine.html');
+        location.href = ('views/timeLine.html'); // es para redireccionar al muro
       })
       .catch(error => {
         let errorCode = error.code;
@@ -84,7 +84,7 @@ window.socialNetwork = {
         const errorMessage = error.message;
         const email = error.email;
         const credential = error.credential;
-        if (errorCode === 'auth/account-exists-with-different-credential') {
+        if (errorCode === 'auth/account-exists-with-different-credential') {// ya hay cuenta con el mismo correo
           swal({
             confirmButtonText: 'Aceptar',
             type: 'error',
@@ -98,13 +98,13 @@ window.socialNetwork = {
   createNewAccount: (email, password) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(result => {
-        const user = firebase.auth().currentUser;
-        user.sendEmailVerification().then(result => {
+        const user = firebase.auth().currentUser; // valores actuales
+        user.sendEmailVerification().then(result => {// es para mandar un correo
           console.log('Correo enviado');
           swal({
             confirmButtonText: 'Aceptar',
             type: 'success',
-            title: 'Se ha enviado un enlace de verificación a tu cuenta de coreo',
+            title: 'Se ha enviado un enlace de verificación a tu cuenta de correo',
             text: 'Sigue las instrucciones para ingresar a tu cuenta'
           });
           signOut();
