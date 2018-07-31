@@ -187,16 +187,13 @@ const createUpdateArea = postID => {
 
 const updatePostContent = postID => {
   const postContent = document.getElementById(`post${postID}`).value;
-  db.collection('post').doc(postID).get()
-    .then(post => {
-      db.collection('post').doc(postID).update({
-        content: postContent
-      }).then(element => {
-        drawPostByUser();
-      }).catch(element => {
-        console.log('Error al editar la publicación');
-      });
-    });
+  db.collection('post').doc(postID).update({
+    content: postContent
+  }).then(element => {
+    drawPostByUser();
+  }).catch(element => {
+    console.log('Error al editar la publicación');
+  });
 };
 
 getCurrentUserData();

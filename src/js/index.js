@@ -7,12 +7,10 @@ document.getElementById('login-button').addEventListener('click', event => {
   socialNetwork.loginWithEmailAndPassword(email, password);
 });
 
-
 document.getElementById('google-button').addEventListener('click', event =>{
   event.preventDefault();
   socialNetwork.loginWithGoogle();
 });
-
 
 document.getElementById('facebook-button').addEventListener('click', event =>{
   event.preventDefault();
