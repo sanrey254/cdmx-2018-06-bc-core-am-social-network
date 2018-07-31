@@ -26,7 +26,7 @@ const getCurrentUserData = () => {
   let userPhotoLink;
   let currentName;
   firebase.auth().onAuthStateChanged(user => { // esta comprueba si ya inciaste sesion
-    if (user) { //si esta activo  mandas a llamar la funcion  que pinta el perfil (donde esta la d)
+    if (user) { //si esta activo  mandas a llamar la funcion  que pinta el perfil (donde esta la id)
       setUserProfile(user);
       document.getElementById('send-post').addEventListener('click', event => {
         event.preventDefault(); // es el evento del boton de enviar
@@ -43,7 +43,7 @@ const getCurrentUserData = () => {
           } else {
             currentName = user.displayName;
           }
-          db.collection('post').add({  // variable que incializa firestore  traeem la coleccion con el nombre post  y agregale los siguientes campos
+          db.collection('post').add({  // variable: que incializa firestore  traeme la coleccion con el nombre post  y agregale los siguientes campos
             userID: user.uid,  //user sale de cuando comprobo qeu ya habia inciado sesion
             userName: currentName,
             userPhoto: userPhotoLink,
@@ -56,7 +56,7 @@ const getCurrentUserData = () => {
               type: 'success',
               title: 'Publicación exitosa'
             });
-            document.getElementById('user-content-post').value = ''; //esta es par alimpiar el text area y no se queda lo que se escribe
+            document.getElementById('user-content-post').value = ''; //esta es para limpiar el textarea y no se queda lo que se escribe
             drawPostByUser();
           }).catch(error => { // y si no muestra esto
             console.error('Error adding document: ', error);
@@ -73,7 +73,7 @@ const drawPostByUser = () => {// esta es para pintar todas las publicaciones
   firebase.auth().onAuthStateChanged(user => { //comprueba la sesion activa
     if (user) { //si esta activo  has esto..
       const currentUserID = user.uid; // guarda el id del usuario que esta activo es para saber si la publicacion es de el o no es de el
-      const postRef = db.collection('post').orderBy('time', 'desc');//entrar a firebase  a los posts  y ordenalos por tiepor y por desendente
+      const postRef = db.collection('post').orderBy('time', 'desc');//entrar a firebase  a los posts  y ordenalos por tiempo y por desendente
       postRef.get() // get es el metodo para traer todas las publicaciones
         .then(element => { // si la consulta fue exitosa has esto que sigue
           let result = '';
@@ -103,8 +103,8 @@ const drawPostByUser = () => {// esta es para pintar todas las publicaciones
   });
 };
 
-const checkUserIDforLike = (userID, likes) => { //
-  const positionUserID = likes.indexOf(userID);// en el arreglo likes busca el id  y retorna la posicion en odnde esta si no hay nada retorna -1
+const checkUserIDforLike = (userID, likes) => {
+  const positionUserID = likes.indexOf(userID);// en el agrego likes, busca el id  y retorna la posicion en donde esta, si no hay nada retorna -1
   if (positionUserID === -1) {
     return true;//no existe hay que agregar
   } else {
@@ -156,7 +156,7 @@ const deletePost = (postID) => { // es para leiminar
     confirmButtonText: 'Aceptar'
   }).then(confirm => {
     if (confirm.value) {
-      db.collection('post').doc(postID).delete() // treloo solo este id y eliminalo
+      db.collection('post').doc(postID).delete() // trelo solo este id y eliminalo
         .then(element => { // si se ppudo eliminar entra aqui
           swal({ // sale el segundo alert para decir que si se pudo eliminar
             confirmButtonText: 'Aceptar',
