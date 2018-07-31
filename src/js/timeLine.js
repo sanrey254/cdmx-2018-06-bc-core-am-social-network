@@ -33,7 +33,7 @@ const getCurrentUserData = () => {
         let datePost = firebase.firestore.FieldValue.serverTimestamp(); // este es para la fecha que la agarra del servidor
         const contentPost = document.getElementById('user-content-post').value;// guarda lo que escribe el ususario
         if (contentPost !== '' && contentPost !== ' ') { // es para comprobar que no publique un espacio o algo en blanco
-          if (user.photoURL === null) { // esta es la funcion de la foto de la publicacion
+          if (user.photoURL === null) { 
             userPhotoLink = '../images/user-default2.jpg';
           } else {
             userPhotoLink = user.photoURL;
@@ -43,8 +43,8 @@ const getCurrentUserData = () => {
           } else {
             currentName = user.displayName;
           }
-          db.collection('post').add({  // variable: que incializa firestore  traeme la coleccion con el nombre post  y agregale los siguientes campos
-            userID: user.uid,  //user sale de cuando comprobo qeu ya habia inciado sesion
+          db.collection('post').add({
+            userID: user.uid,  
             userName: currentName,
             userPhoto: userPhotoLink,
             time: datePost,
