@@ -1,4 +1,4 @@
-.background-image{
+.background-image{ /* para le collague */
   background-image: url('../images/collageDogs.jpg');
   background-size: cover;
   background-position: center center;
@@ -10,7 +10,7 @@
   position: absolute;
 }
 
-.bg-pattern{
+.bg-pattern{/* fondo */
 	background-image: url("../images/huella.jpg");
 	background-repeat: repeat;
 }
@@ -73,10 +73,10 @@
   max-width: 70%;
 }
 
+
 .white-text{
   color: #ffffff;
 }
-
 .card-comment{
   background-color: #fdedb1;
   padding: 10px;
