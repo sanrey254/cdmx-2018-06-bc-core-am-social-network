@@ -1,4 +1,8 @@
 # Red Social Doggy Friends
+
+##Objetivo
+Encontrar diferentes opciones al problema de la educación de los caninos de una forma fácil, rápida y económica para poder disminuir las demandas a dueños por agresiones de canino.
+
 ## Investigación de mercado
 Hemos observado un incremento en la demanda para poder entrenar  a los perro que actualmente se han convertido en un nicho que llamaremos los perrhijos debido a que la demanda esta creciendo la gente esta buscando un lugar donde poder llevar a sus perros pero he aquí donde se encuentra un desconfianza de dejar a sus perrhijos en las escuelas caninas por lo que han vivido  y están buscando un lugar donde poder encontrar gente que les ayude a educar a su perro y evitarse de problemas molestos con un vecino o hasta una multa por el perrhijo que no se encuentra educado.Al mismo tiempo esta gente quiere poder ahorrase un dinero y aprender con su hijo para poder compartir la experiencia que se requiera.Es por eso que surge la idea de una red social para que puedas hacer conexiones con gente que ha tenido este mismo problema ( de educar a sus perrhijos), y esa misma comunidad pueda darte tips de cómo poder lograr que tu perrhijo sea un perro con educación, en esta red social podrás compartir tus inquietudes para que alguien que ya haya pasado pro eso pueda ayudarte dándote algunos tips.
 
@@ -7,12 +11,22 @@ Hemos observado un incremento en la demanda para poder entrenar  a los perro que
 
 ![imagen2](src/images/image2-readme.png)
 
+## Solución
+
+¿qué es una red social?
+
+Las redes sociales son sitios de Internet formados por comunidades de individuos con intereses o actividades en común. y que permiten el contacto entre estos, de manera que se puedan comunicar e intercambiar información.
+
+La solución es una red social ya que esta te permite poder intercambiar información de una forma rápida porque están en la web de una manera fácil ya que la  red es fácil de usar y una manera económica porque no es necesario gastar dinero para poder obtener un tip o bien muchas posibilidades de cómo solucionar un problema
+
+
 ## Benchmark
 Se hizo una investigación acerca de las redes sociales que ya existen y esta es la información que se encontró:
 
 ![imagen1](src/images/image1-readme.png)https://docs.google.com/spreadsheets/d/14MUsGsPO_HqadCDgS_DZp7BSeOWZm7JXdWEd1BaX3KM/edit#gid=1319909757
 
 Como pudimos observar todas ofrecen diferentes servicios  pero ninguno es especializado. Todas ofrecen un poco de todos.También pudimos observar que no todos estos sitios cuentan con una cuenta personal para poder guardar la información que al usuario le ha agradado y no tienen la facilidad de poderse conectar con una cuenta de correo o con una red social.## Historias de usuario* Yo como usuaria joven quiero una red social en la cual pueda obtener tips de personas  que ya han educado a sus perros y  así me puedan dar tips para poder educar a mi perro.* Yo como usuaria joven quiero poder tener conexiones con personas que ya han educado a sus perros y me puedan dar tips para poder educar a mi perrito.* Yo como usuaria joven quiero poder acceder a la red social “Doggy friends” y tener una cuenta de usuario para obtener tips y recomendaciones de como educar a mi perrito.
+
 ## Flujo de la red social (first-movile)
 
 En el flujo vamos a poder observar como es que seria el ideal para que un usuario pueda registrarse con sus diferentes redes o si bien lo prefiere con su correo o creando una cuenta manualmente.
