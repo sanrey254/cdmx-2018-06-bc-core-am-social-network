@@ -53,6 +53,7 @@
 
 .no-btn:hover{
   color: #ffc107;
+  text-decoration: none;
 }
 
 .small-font{
@@ -66,3 +67,10 @@
 .img-fluid {
   max-width: 70%;
 }
+<<<<<<< HEAD
+=======
+
+.white-text{
+  color: #ffffff;
+}
+>>>>>>> upstream/master

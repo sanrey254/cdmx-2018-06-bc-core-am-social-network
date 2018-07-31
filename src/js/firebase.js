@@ -51,7 +51,7 @@ window.socialNetwork = {
     }
   },
   // Ingreso con cuenta de github
-  loginWithGitHub: () =>{
+  loginWithGitHub: () => {
     if (!firebase.auth().currentUser) {
       const provider = new firebase.auth.GithubAuthProvider();
       provider.addScope('repo');
@@ -74,8 +74,9 @@ window.socialNetwork = {
     }
   },
 
-  getPopUpForAccount: (provider) =>{
+  getPopUpForAccount: (provider) => {
     firebase.auth().signInWithPopup(provider).then(result => {
+<<<<<<< HEAD
         location.href = ('views/timeLine.html');
         // Errores en la conexión
       }).catch(error => {
@@ -93,6 +94,25 @@ window.socialNetwork = {
           });
         }
       });
+=======
+      location.href = ('views/timeLine.html');
+      // Errores en la conexión
+    }).catch(error => {
+      const errorCode = error.code;
+      console.log(errorCode);
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = error.credential;
+      if (errorCode === 'auth/account-exists-with-different-credential') {
+        swal({
+          confirmButtonText: 'Aceptar',
+          type: 'error',
+          title: 'Ya existe un usuario registrado con la dirección de correo proporcionada',
+          text: 'Inténtalo de nuevo'
+        });
+      }
+    });
+>>>>>>> upstream/master
   },
 
   createNewAccount: (email, password) => {

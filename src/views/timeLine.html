@@ -18,7 +18,7 @@
 
 <body class="bg-pattern">
   <nav class="navbar navbar-expand-lg navbar-light bg-black fixed-top">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="timeLine.html">
       <img src="../images/DoggyLogo2.png" style="height: 50px">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -27,20 +27,20 @@
     </button>
     <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
       <ul class="navbar-nav align-content-end">
-        <li class="nav-item dropleft">
-          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fas fa-user-circle"></i>
+        <li class="nav-item mx-md-3 ml-2">
+          <a href="timeLine.html" class="nav-item white-text no-btn" title="Muro">
+            <i class="fas fa-paw"></i> Muro
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">
-              <i class="fas fa-user-edit"></i> Mi perfil</a>
-            <a class="dropdown-item" href="#">
-              <i class="fas fa-users"></i> Mis amigos</a>
-            <div class="dropdown-divider"></div>
-            <button class="dropdown-item no-btn" id="sign-out">
-              <i class="fas fa-user-times"></i> Cerrar Sesión</button>
-          </div>
+        </li>
+        <li class="nav-item mx-md-3 ml-2">
+          <a href="userProfile.html" class="nav-item white-text no-btn">
+            <i class="fas fa-user-circle" title="Mi perfil"></i> Perfil
+          </a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-item no-btn white-text" id="sign-out" title="Cerrar sesión">
+            <i class="fas fa-sign-in-alt"></i> Salir
+          </button>
         </li>
       </ul>
       <form class="form-inline my-2 my-md-0">
@@ -54,7 +54,7 @@
   <section id="user-profile">
     <div class="container-fluid mt-6">
       <div class="row">
-        <div class="col-md-3 d-none d-sm-none d-md-block">
+        <div class="col-md-3 d-none d-sm-none d-md-block text">
           <div class="card border-secondary" style="width:100%">
             <img class="card-img-top" style="width:100%" id="user-image">
             <div class="card-body text-center">
@@ -66,7 +66,6 @@
                 <i class="far fa-envelope"></i>
                 <span id="current-user-email"></span>
               </p>
-              <p class="card-text" id="presentacion">I am a professional student designer i love my work so hire me !!</p>
             </div>
           </div>
         </div>
@@ -97,6 +96,7 @@
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
   <script src="../js/firebase.js"></script>
+  <script src="../js/generalFunctions.js"></script>
   <script src="../js/timeLine.js"></script>
 </body>
 

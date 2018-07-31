@@ -71,7 +71,7 @@ const getCurrentUserData = () => {
 
 const drawPostByUser = () => {// esta es para pintar todas las publicaciones
   firebase.auth().onAuthStateChanged(user => { //comprueba la sesion activa
-    if (user) { //si esta activo  has esto
+    if (user) { //si esta activo  has esto..
       const currentUserID = user.uid; // guarda el id del usuario que esta activo es para saber si la publicacion es de el o no es de el
       const postRef = db.collection('post').orderBy('time', 'desc');//entrar a firebase  a los posts  y ordenalos por tiepor y por desendente
       postRef.get() // get es el metodo para traer todas las publicaciones
