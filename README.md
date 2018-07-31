@@ -37,6 +37,15 @@ https://docs.google.com/presentation/d/1rExVXwxnWtihbMGpVw8P8-LTgi4gPU7z-sEK2EAY
 En este vamos a mostrar un acercamiento a como debería de verse la red social.
 https://marvelapp.com/188d9edg
 
+
+## Paleta de colores y tipografía
+
+Utilizamos el color amarillo para expresar calidez , dinamismo y alegría.
+El marrón es un color natural y cálido asociado con la tierra fiabilidad, estabilidad, amistad y naturaleza. Es un excelente color para transmitir información ya que estos son colores calidos.
+
+Se utiliza una letra  de la familia  de las san serif ya que es una letra sencilla de leer y  dan un aspecto de modernidad.
+
+
 ## Encuesta
 Se realizara una encuesta en la cual se podrán observar los hábitos de consumo tanto para sus caninos, y la importancia que ellos le dan a la educación de sus perrhijos.
 
