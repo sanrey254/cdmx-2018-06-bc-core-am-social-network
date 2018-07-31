@@ -40,6 +40,7 @@
   border: none;
   width: 100%!important;
   max-height: 100px;
+  min-height: 60px;
 }
 
 .form-control:focus{
@@ -64,10 +65,35 @@
   width: 70%;
 }
 
+.profile-small-image{
+  width: 30%;
+}
+
 .img-fluid {
   max-width: 70%;
 }
 
 .white-text{
   color: #ffffff;
+}
+
+.card-comment{
+  background-color: #fdedb1;
+  padding: 10px;
+  border-radius: 20px!important;
+  margin: 10px 8px;
+}
+.textarea-comment{
+  background-color: #f7f7f7;
+}
+.card-footer{
+  border: none;
+}
+
+.little-font{
+  font-size: 12px;
+}
+
+.middle-aling{
+  margin: auto 0;
 }

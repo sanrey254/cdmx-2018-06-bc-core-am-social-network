@@ -72,14 +72,18 @@ const drawPostByUser = () => {
             </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 px-0 px-md-2 col-2"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-10 col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes.length} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button>
             <button class="no-btn" onclick="deletePost('${post.id}')"><i class="far fa-trash-alt"></i></button><button class="no-btn" onclick="createUpdateArea('${post.id}')"><i class="ml-3 fas fa-pencil-alt"></i></button></div></div></div>
             </div>
+            <div class="card-footer"><textarea id="comment-content" class="form-control form-textarea textarea-comment" placeholder="Escribe una comentario"></textarea><div class="text-right"><button class="btn btn-warning mt-2" onclick="addCommentToPost('${post.id}')"><i class="fas fa-location-arrow"></i></button></div></div>
           </div>`;
+              drawCommentByPost(post.id);
             } else {
               result += `<div class="card mb-4 border-secondary">
             <div class="card-body">
               <p class="card-text" id="${post.id}">${post.data().content}</p>
             </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 px-0 px-md-2 col-2"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-10 col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes.length} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button></div></div></div>
             </div>
+            <div class="card-footer"><textarea id="comment${post.id}" class="form-control form-textarea textarea-comment" placeholder="Escribe una comentario"></textarea><div class="text-right"><button class="btn btn-warning mt-2" onclick="addCommentToPost('${post.id}')"><i class="fas fa-location-arrow"></i></button></div><div id="comment-area${post.id}"></div></div>
           </div>`;
+              drawCommentByPost(post.id);
             }
           });
           document.getElementById('list-of-post').innerHTML = result;
@@ -133,6 +137,68 @@ const addLikeToPost = (postID) => {
   });
 };
 
+const drawCommentByPost = (postID) => {
+  let result = '';
+  db.collection('comment').get()
+    .then(commentResult => {
+      commentResult.forEach(element => {
+        if (element.data().postID === postID) {
+          result += `<div class="card-footer card-comment">
+        <div class="small-font"><div class="container-fluid"><div class="row"><div class="col-md-2 col-2 px-0 px-md-2 text-center middle-aling"><img src="${element.data().userPhoto}" class="rounded-circle profile-small-image align-middle"></div><div class="col-md-6">${element.data().content}<p class="little-font"><strong>${element.data().userName} - ${element.data().time}</strong><p></div></div></div></div>
+            </div>`;
+        }
+      });
+      document.getElementById(`comment-area${postID}`).innerHTML = result;
+    });
+};
+
+const addCommentToPost = (postID) => {
+  let currentUserName = '';
+  const commentContent = document.getElementById(`comment${postID}`).value;
+  console.log(commentContent);
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      if (user.photoURL === null) {
+        userPhotoLink = '../images/user-default2.jpg';
+      } else {
+        userPhotoLink = user.photoURL;
+      }
+      let dateComment = firebase.firestore.FieldValue.serverTimestamp();
+      if (user.displayName === null) {
+        db.collection('users').get()
+          .then(userResult => {
+            userResult.forEach(element => {
+              if (element.data().userID === user.uid) {
+                currentUserName = element.data().userName;
+              }
+            });
+          });
+      } else {
+        currentUserName = user.displayName;
+      }
+      db.collection('comment').add({
+        content: commentContent,
+        postID: postID,
+        userID: user.uid,
+        userName: currentUserName,
+        userPhoto: userPhotoLink,
+        time: dateComment,
+        likes: []
+      })
+        .then(result => {
+          swal({
+            confirmButtonText: 'Aceptar',
+            type: 'success',
+            title: 'Comentario existoso'
+          });
+          drawPostByUser();
+        })
+        .catch(error => {
+          console.log('Error en comentario', error);
+        });
+    }
+  });
+};
 const deletePost = (postID) => {
   swal({
     title: '¿Estas seguro de eliminar la publicación?',
