@@ -2,32 +2,12 @@
 socialNetwork.initializeFirebase();
 let db = firebase.firestore();
 
-document.getElementById('sign-out').addEventListener('click', event => {
-  event.preventDefault();
-  socialNetwork.signOut();
-});
-
-const setUserProfile = user => {
-  if (user.displayName === null) {
-    document.getElementById('current-user-name').innerHTML = user.email;
-  } else {
-    document.getElementById('current-user-name').innerHTML = user.displayName;
-  }
-  document.getElementById('current-user-email').innerHTML = user.email;
-  userPhoto = document.getElementById('user-image');
-  if (user.photoURL === null) {
-    userPhoto.src = '../images/user-default2.jpg';
-  } else {
-    userPhoto.src = `${user.photoURL}?height=300`;
-  }
-};
-
 const getCurrentUserData = () => {
   let userPhotoLink;
   let currentName;
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
-      setUserProfile(user);
+      setUserProfile();
       document.getElementById('send-post').addEventListener('click', event => {
         event.preventDefault();
         let datePost = firebase.firestore.FieldValue.serverTimestamp();
@@ -39,7 +19,14 @@ const getCurrentUserData = () => {
             userPhotoLink = user.photoURL;
           }
           if (user.displayName === null) {
-            currentName = user.email;
+            db.collection('users').get()
+              .then(userResult => {
+                userResult.forEach(element => {
+                  if (user.uid === element.data().userID) {
+                    currentName = element.data().userName;
+                  }
+                });
+              });
           } else {
             currentName = user.displayName;
           }
@@ -110,7 +97,7 @@ const checkUserIDforLike = (userID, likes) => {
   } else {
     return positionUserID;
   }
-}
+};
 
 const addLikeToPost = (postID) => {
   firebase.auth().onAuthStateChanged(user => {
