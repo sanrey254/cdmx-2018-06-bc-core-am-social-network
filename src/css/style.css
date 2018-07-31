@@ -1,4 +1,8 @@
-.background-image{ /* para le collague */
+body{
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+}
+.background-image{ 
   background-image: url('../images/collageDogs.jpg');
   background-size: cover;
   background-position: center center;
@@ -10,7 +14,7 @@
   position: absolute;
 }
 
-.bg-pattern{/* fondo */
+.bg-pattern{
 	background-image: url("../images/huella.jpg");
 	background-repeat: repeat;
 }
@@ -73,10 +77,10 @@
   max-width: 70%;
 }
 
-
 .white-text{
   color: #ffffff;
 }
+
 .card-comment{
   background-color: #fdedb1;
   padding: 10px;
@@ -85,6 +89,7 @@
 }
 .textarea-comment{
   background-color: #f7f7f7;
+  height: 60px;
 }
 .card-footer{
   border: none;
@@ -96,4 +101,9 @@
 
 .middle-aling{
   margin: auto 0;
+}
+
+.btn-comment{
+  padding: 0.2rem .6rem;
+  font-size: 0.6rem;
 }

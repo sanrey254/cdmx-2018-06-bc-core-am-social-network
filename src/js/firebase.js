@@ -98,8 +98,8 @@ window.socialNetwork = {
   createNewAccount: (email, password) => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(result => {
-        const user = firebase.auth().currentUser; // valores actuales
-        user.sendEmailVerification().then(result => {// es para mandar un correo
+        const user = firebase.auth().currentUser; 
+        user.sendEmailVerification().then(result => {
           console.log('Correo enviado');
           swal({
             confirmButtonText: 'Aceptar',
