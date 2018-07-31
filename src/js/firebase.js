@@ -61,7 +61,7 @@ window.socialNetwork = {
     }
   },
 
-  // Ingreso con correo de Google
+  // Ingreso con correo de facebook
   loginWithFacebook: () => {
     // Comprueba que el usaurio no haya ingresado antes, que no tenga una sesión activa.
     if (!firebase.auth().currentUser) {
