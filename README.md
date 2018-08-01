@@ -76,6 +76,7 @@ La estructura de archivos del proyecto se muestra a continuación:
 ![pantalla1](src/images/pantalla1.png)
 ![pantalla2](src/images/pantalla2.png)
 ![pantalla3](src/images/pantalla3.png)
+![pantalla4](src/images/pantalla4.png)
 ---
 ### Desarrolladoras
 [Brenda Sànchez](https://github.com/sanrey254) y [Daniela Gutierrez](https://github.com/Dani1592)
