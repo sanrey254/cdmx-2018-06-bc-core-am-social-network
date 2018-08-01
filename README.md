@@ -3,7 +3,7 @@
 
 
 
-##Objetivo
+## Objetivo
 Encontrar diferentes opciones al problema de la educación de los caninos de una forma fácil, rápida y económica para poder disminuir las demandas a dueños por agresiones de canino.
 
 ## Investigación de mercado
@@ -69,9 +69,6 @@ La solución es una red social ya que esta te permite poder intercambiar informa
 Se hizo una investigación acerca de las redes sociales que ya existen y esta es la información que se encontró:
 
 
-
-
-
 ![imagen1](src/images/image1-readme.png)
 
 
@@ -112,44 +109,28 @@ También pudimos observar que no todos estos sitios cuentan con una cuenta perso
 
 ## Flujo de la red social (first-movile)
 
-
-
-
-
 En el flujo vamos a poder observar como es que seria el ideal para que un usuario pueda registrarse con sus diferentes redes o si bien lo prefiere con su correo o creando una cuenta manualmente.
-
-
-
 
 https://docs.google.com/presentation/d/1rExVXwxnWtihbMGpVw8P8-LTgi4gPU7z-sEK2EAYpCo/edit
 
 ## Sketch alta fidelidad
 
-
-
-
-
 En este vamos a mostrar un acercamiento a como debería de verse la red social.
 
-
-
-
 https://marvelapp.com/188d9edg
+
+## Paleta de colores y tipografía
+
+Utilizamos el color amarillo para expresar calidez , dinamismo y alegría.
+El marrón es un color natural y cálido asociado con la tierra fiabilidad, estabilidad, amistad y naturaleza. Es un excelente color para transmitir información ya que estos son colores calidos.
+
+Se utiliza una letra  de la familia  de las san serif ya que es una letra sencilla de leer y  dan un aspecto de modernidad.
+
 
 ## Encuesta
 
 
 Se realizara una encuesta en la cual se podrán observar los hábitos de consumo tanto para sus caninos, y la importancia que ellos le dan a la educación de sus perrhijos.
-
-
-
-
-
-https://docs.google.com/forms/d/1xrfGHiCvT1u7W0mNYo0fALyWee3_ojYLnTJVarjU5aE/edit
-
-
-
-
 
 Los resultados de la encuesta fueron los siguientes:
 
