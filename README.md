@@ -30,13 +30,14 @@ Para desarrollo de este proyecto se utilizaron las siguientes tecnologías y lib
 3. JavaScript (ES6)
 4. [Bootstrap 4.1](https://getbootstrap.com/)
 5. [Sweet Alert](https://sweetalert2.github.io/)
-6. [Firebase](https://firebase.google.com/)**
+6. [Firebase](https://firebase.google.com/)*
 
-**Los productos utilizados de firebase son: [Cloud Firestore](https://firebase.google.com/products/firestore/) para almacenar y sincronizar los datos y [Firebase Authentication](https://firebase.google.com/products/auth/) para la autenficación de usuarios.
+*Los productos utilizados de firebase son: [Cloud Firestore](https://firebase.google.com/products/firestore/) para almacenar y sincronizar los datos y [Firebase Authentication](https://firebase.google.com/products/auth/) para la autenficación de usuarios.
 
 ----
 ### Instalación
-Para realizar contribuciones a este proyecto se requiere hacer _fork_ o _clonar_ el repositorio, isntalar `Node.js` y las dependencias del proyecto con el comando `nmp install`
+Para realizar contribuciones a este proyecto se requiere hacer _fork_ o _clonar_ el repositorio, instalar `Node.js` y las dependencias del proyecto con el comnado `npm install`
+.
 ----
 ### Estructura del proyecto
 La estructura de archivos del proyecto se muestra a continuación:
