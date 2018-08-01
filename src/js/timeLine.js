@@ -69,7 +69,7 @@ const drawPostByUser = () => {
             </div><div class="card-header small-font"><div class="container"><div class="row"><div class="col-md-8"><div class="row"><div class="col-md-2 px-0 px-md-2 col-2"><img src="${post.data().userPhoto}" class="rounded-circle profile-image"></div><div class="col-10 col-md-10 pl-0"><strong>${post.data().userName}</strong><p>${post.data().time}</p></div></div></div><div class="col-md-4 text-md-right text-center">${post.data().likes.length} <button class="no-btn mr-4" onclick="addLikeToPost('${post.id}')"><i class="fas fa-thumbs-up"></i></button>
             <button class="no-btn" onclick="deletePost('${post.id}')"><i class="far fa-trash-alt"></i></button><button class="no-btn" onclick="createUpdateArea('${post.id}')"><i class="ml-3 fas fa-pencil-alt"></i></button></div></div></div>
             </div>
-            <div class="card-footer"><textarea id="comment-content" class="form-control form-textarea textarea-comment" placeholder="Escribe una comentario"></textarea><div class="text-right"><button class="btn btn-warning mt-2" onclick="addCommentToPost('${post.id}')" title="Guardar cambios"><i class="fas fa-location-arrow"></i></button></div></div>
+            <div class="card-footer"><textarea id="comment-content" class="form-control form-textarea textarea-comment" placeholder="Escribe una comentario"></textarea><div class="text-right"><button class="btn btn-warning mt-2 btn-comment" onclick="addCommentToPost('${post.id}')" title="Guardar cambios"><i class="fas fa-location-arrow"></i></button></div></div>
           </div>`;
               drawCommentByPost(post.id);
             } else {
@@ -141,7 +141,7 @@ const drawCommentByPost = (postID) => {
       commentResult.forEach(element => {
         if (element.data().postID === postID) {
           result += `<div class="card-footer card-comment">
-        <div class="small-font"><div class="container-fluid"><div class="row"><div class="col-md-2 col-2 px-0 px-md-2 text-center middle-aling"><img src="${element.data().userPhoto}" class="rounded-circle profile-small-image align-middle"></div><div class="col-md-6">${element.data().content}<p class="little-font"><strong>${element.data().userName} - ${element.data().time}</strong><p></div></div></div></div>
+        <div class="small-font"><div class="container-fluid"><div class="row"><div class="col-md-2 col-2 px-0 px-md-2 text-center middle-aling"><img src="${element.data().userPhoto}" class="rounded-circle profile-small-image align-middle"></div><div class="col-md-10">${element.data().content}<p class="little-font"><strong>${element.data().userName} - ${element.data().time}</strong><p></div></div></div></div>
             </div>`;
         }
       });
