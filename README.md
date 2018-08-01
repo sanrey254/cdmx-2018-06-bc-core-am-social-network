@@ -1,4 +1,4 @@
-## Red social Doggy Friends :dog:
+
 _¿Eres dueño de un perro y este tiene problemas de comportamiento?_
 _¿Te gustaría interactuar con otras personas con experiencia en conflictos caninos?_
 _¿Te interesa pertenecer a una comunidad para amantes de los perros?_
@@ -36,7 +36,7 @@ Para desarrollo de este proyecto se utilizaron las siguientes tecnologías y lib
 
 ----
 ### Instalación
-Para realizar contribuciones a este proyecto se requiere hacer _fork_ o _clonar_ el repositorio, instalar `Node.js` y las dependencias del proyecto con el comando `npm install`.
+Para realizar contribuciones a este proyecto se requiere hacer _fork_ o _clonar_ el repositorio, isntalar `Node.js` y las dependencias del proyecto con el comando `nmp install`
 ----
 ### Estructura del proyecto
 La estructura de archivos del proyecto se muestra a continuación:
@@ -76,9 +76,9 @@ La estructura de archivos del proyecto se muestra a continuación:
 ----
 ### Pantallas del proyecto
 Este proyecto se desarrollo bajo el diseño web de Mobile First.
-![pantalla1](images/pantalla1.png)
-![pantalla2](images/pantalla2.png)
-![pantalla3](images/pantalla3.png)
+![pantalla1](src/images/pantalla1.png)
+![pantalla2](src/images/pantalla2.png)
+![pantalla3](src/images/pantalla3.png)
 ---
 ### Desarrolladoras
 [Brenda Sànchez](https://github.com/sanrey254) y [Daniela Gutierrez](https://github.com/Dani1592)
