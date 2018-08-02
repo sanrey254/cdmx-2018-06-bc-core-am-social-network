@@ -48,20 +48,20 @@ La estructura de archivos del proyecto se muestra a continuación:
 ├── package-lock.json
 ├── src
 │   ├── css
-│ 	│ 	├── style.css
+│ 	│ 	├─ style.css
 │   ├── js
-│ 	│ 	├── firebase.js
-│ 	│ 	├── generalFunctions.js
-│ 	│ 	├── index.js
-│ 	│ 	├── register.js
-│ 	│ 	├── timeLine.js
-│ 	│ 	├── userProfile.js
+│ 	│ 	├─ firebase.js
+│ 	│ 	├─ generalFunctions.js
+│ 	│ 	├─ index.js
+│ 	│ 	├─ register.js
+│ 	│ 	├─ timeLine.js
+│ 	│ 	├─ userProfile.js
 │   ├── views
-│ 	│ 	├── timeLine.html
-│ 	│ 	├── userProfile.html
+│ 	│ 	├─ timeLine.html
+│ 	│ 	├─ userProfile.html
 │   ├── ux
-│ 	│ 	├── images
-│ 	│ 	├── README.md
+│ 	│ 	├─ images
+│ 	│ 	├─ README.md
 │   └── images
 ├── test
 |   ├── data.spec.js
